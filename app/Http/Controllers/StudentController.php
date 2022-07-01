@@ -95,13 +95,14 @@ class StudentController extends Controller
         $student = User::find($id);
         return view('student.show',compact('student'));
     }
-    
+
     /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Student  $student
      * @return \Illuminate\Http\Response
      */
+    // for edit student
     public function edit($id)
     {
         $student = User::find($id);
