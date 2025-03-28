@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Mail;
 use Session;
 use Validator;
@@ -10,7 +11,7 @@ use App\Models\Teacher;
 use App\Models\UserRole;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use App\jobs\SendEmailJob;
+use App\Jobs\SendEmailJob;
 
 use Illuminate\Support\Facades\Hash;
 
@@ -62,6 +63,7 @@ class TeacherController extends Controller
                     ->withErrors($validator)
                     ->withInput();
     }
+    DB::beginTransaction();
         $teacher=  User::create([
             'id'=>Str::uuid(),
             'name'=>$request->name,
@@ -83,6 +85,7 @@ class TeacherController extends Controller
         dispatch(new SendEmailJob($details,$teacher,$roletype));
         //Display Flash Message
         Session::flash('success','The Teacher is Created successfully !');
+        DB::commit();
         //redirecting to another page
         return redirect('/');
 

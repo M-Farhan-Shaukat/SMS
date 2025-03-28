@@ -16,27 +16,27 @@
                 <input type="hidden" name="role" value="2">
                 <div class="form-group">
                     <label for="">Name</label>
-                    <input type="text" name="name" id="name" class="form-control" placeholder="Enter Teacher's Name">
+                    <input type="text" name="name" id="name" value="{{ old('name') }}" class="form-control" placeholder="Enter Teacher's Name">
                 </div>
 
                 <div class="form-group">
                     <label for="">Email</label>
-                    <input type="email" name="email" id="email" class="form-control" placeholder="Enter Teacher's Email">
+                    <input type="email" name="email" id="email" value="{{ old('email') }}" class="form-control" placeholder="Enter Teacher's Email">
                 </div>
 
                 <div class="form-group">
                     <label for="">Address</label>
-                    <input type="text" name="address" id="address" class="form-control" placeholder="Enter Teacher's Address">
+                    <input type="text" name="address" value="{{ old('address') }}" id="address" class="form-control" placeholder="Enter Teacher's Address">
                 </div>
 
                 <div class="form-group">
                     <label for="">Age</label>
-                    <input type="number" name="age" id="age" class="form-control" placeholder="Enter Teacher's Age">
+                    <input type="number" name="age" id="age" value="{{ old('age') }}" class="form-control" placeholder="Enter Teacher's Age">
                 </div>
 
                 <div class="form-group">
                     <label for="">Class</label>
-                    <select required id="" class="form-control" name="class">
+                    <select required id="" class="form-control" value="{{ old('class') }}" name="class">
                         <option selected disabled>Select Class</option>
                       <option value="1">1</option>
                       <option value="2">2</option>
@@ -53,7 +53,7 @@
 
                 <div class="form-group">
                     <label for="">Contact</label>
-                    <input type="number" name="contact" id="contact" class="form-control" placeholder="Enter Teacher's Contact ">
+                    <input type="number" name="contact" id="contact" value="{{ old('contact') }}" class="form-control" placeholder="Enter Teacher's Contact ">
                 </div>
 
 

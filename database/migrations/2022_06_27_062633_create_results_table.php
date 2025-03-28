@@ -16,12 +16,13 @@ class CreateResultsTable extends Migration
         Schema::create('results', function (Blueprint $table) {
             $table->increments('id');
             $table->uuid('student_id')->nullable(false);
+            $table->foreign('student_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('subject_id')->unsigned();
+            $table->foreign('subject_id')->references('id')->on('subjects')->onDelete('cascade');
+            $table->string('total_marks');
             $table->string('marks')->nullable();
             $table->timestamps();
-            $table->foreign('student_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('subject_id')->references('id')->on('subjects')->onDelete('cascade');
-        
+
         });
     }
 
